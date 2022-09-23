@@ -1,0 +1,28 @@
+{
+    "name": "bcaus/bcaus-structures",
+    "description": "SeAT Plugin for structure management",
+    "type": "seat-plugin",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "BCAUS\\Seat\\Structures\\": "src/"
+        }
+    },
+    "require": {
+        "ext-json": "*",
+        "eveseat/services": "^4.2.0",
+        "eveseat/eveapi": "^4.2.0",
+        "eveseat/web": "^4.2.0",
+        "eveseat/api": "^4.2.0",
+        "yajra/laravel-datatables-oracle": "^9.10"
+    },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "BCAUS\\Seat\\Structures\\StructuresServiceProvider"
+          ]
+        }
+      }
+}
