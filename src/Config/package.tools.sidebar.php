@@ -1,7 +1,10 @@
 <?php
-return [[
-    'permission'    => 'bcaus-structures.structures_view',
-    'name'          => 'Structure Management',
-    'icon'          => 'fas fa-hospital',
-    'route'         => 'tools.bcaus-structures.list',
-]];
+return [
+    'structures'       => [
+        'icon'          => 'fas fa-hospital',
+        'name'          => 'Structure Management',
+        'permission'    => 'bcaus-structures.structures_view',
+        'route_segment' => 'bcaus-structures',
+        'route'         => 'bcaus-structures.list',
+    ]
+];

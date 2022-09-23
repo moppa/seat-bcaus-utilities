@@ -27,7 +27,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/Config/package.tools.sidebar.php', 'package.sidebar.tools.entries');
+        $this->mergeConfigFrom(__DIR__ . '/Config/package.tools.sidebar.php', 'package.sidebar');
     }
 
     private function add_routes()
