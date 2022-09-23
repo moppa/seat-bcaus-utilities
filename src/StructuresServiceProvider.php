@@ -27,16 +27,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function register()
     {
-        $toolsEntries = config('package.sidebar.tools.entries');
-        array_push($toolsEntries, [
-            'permission'    => 'bcaus-structures.structures_view',
-            'name'          => 'Structure Management',
-            'icon'          => 'fas fa-hospital',
-            'route'         => 'tools.bcaus-structures.list',
-        ]);
-        config([
-            'package.sidebar.tools.entries' => array_unique($toolsEntries, SORT_REGULAR),
-        ]);
+        $this->mergeConfigFrom(__DIR__ . '/Config/package.tools.sidebar.php', 'package.sidebar.tools.entries');
     }
 
     private function add_routes()
