@@ -22,7 +22,7 @@ class StructureDataTable extends DataTable
             })
             ->editColumn('fuel_expires', function ($row) {
                 if ($row->fuel_expires)
-                    return view('web::partials.date', ['datetime' => $row->fuel_expires])->render();
+                    return view('bcaus-structures::partials.date', ['datetime' => $row->fuel_expires])->render();
 
                 return trans('web::seat.low_power');
             })
@@ -35,7 +35,7 @@ class StructureDataTable extends DataTable
             ->editColumn('drill_status.ready_time', function ($row) {
                 if ($row->drill_status) {
                     if ($row->drill_status->ready_time) {
-                        return view('web::partials.date', ['datetime' => $row->drill_status->ready_time])->render();
+                        return view('bcaus-structures::partials.date', ['datetime' => $row->drill_status->ready_time])->render();
                     }
                     return '<b>*NOT ACTIVE*</b>';
                 }
@@ -53,11 +53,16 @@ class StructureDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->postAjax()
+            ->postAjax([
+                'data' => 'function(d) { d.athanorsOnly = $("input[name=structure-athanor-filter]").is(":checked"); }',
+            ])
             ->columns($this->getColumns())
             ->addTableClass('table-striped table-hover')
             ->parameters([
                 'drawCallback' => 'function() { $("[data-toggle=tooltip]").tooltip(); }',
+                'order' => [
+                    5, 'asc'
+                ]
             ]);
     }
 
