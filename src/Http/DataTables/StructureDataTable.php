@@ -2,12 +2,13 @@
 
 namespace BCAUS\Seat\Structures\Http\DataTables;
 
+use Illuminate\Http\JsonResponse;
 use BCAUS\Seat\Structures\Models\Structure;
 use Yajra\DataTables\Services\DataTable;
 
 class StructureDataTable extends DataTable
 {
-    public function ajax()
+    public function ajax(): JsonResponse
     {
         return datatables()
             ->eloquent($this->applyScopes($this->query()))

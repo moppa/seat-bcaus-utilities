@@ -76,7 +76,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function getPackageRepositoryUrl(): string
     {
-        return 'https://github.com/';
+        return 'https://github.com/moppa/seat-bcaus-structures';
     }
 
     /**
@@ -88,7 +88,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function getPackagistPackageName(): string
     {
-        return 'seat-bcaus-structures';
+        return 'bcaus-structures';
     }
 
     /**
@@ -100,6 +100,6 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function getPackagistVendorName(): string
     {
-        return 'moppa';
+        return 'bcaus';
     }
 }

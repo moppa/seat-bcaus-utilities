@@ -12,11 +12,11 @@
     },
     "require": {
         "ext-json": "*",
-        "eveseat/services": "^4.2.0",
-        "eveseat/eveapi": "^4.2.0",
-        "eveseat/web": "^4.2.0",
-        "eveseat/api": "^4.2.0",
-        "yajra/laravel-datatables-oracle": "^9.10"
+        "eveseat/services": "^5.0",
+        "eveseat/eveapi": "^5.0",
+        "eveseat/web": "^5.0",
+        "eveseat/api": "^5.0",
+        "yajra/laravel-datatables-oracle": "^10.4.0"
     },
     "extra": {
         "laravel": {
