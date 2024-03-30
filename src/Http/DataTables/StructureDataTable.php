@@ -42,6 +42,10 @@ class StructureDataTable extends DataTable
                 }
                 return '<span>N/A</span>';
             })
+            ->orderColumn('drill_status.ready_time', function($query, $order) {
+                return $query
+                    ->orderByRaw('CASE WHEN bcaus_structure_drillstatus.d_structure_id IS NOT NULL THEN 1 ELSE 0 END DESC, bcaus_structure_drillstatus.ready_time, fuel_expires');
+            })
             ->filterColumn('services', function ($query, $keyword) {
                 $query->whereHas('services', function ($sub_query) use ($keyword) {
                     return $sub_query->whereRaw('name LIKE ?', ["%$keyword%"]);

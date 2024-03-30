@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class DrillStatus extends Model
 {
-    protected $table = 'v_structure_drillstatus';
+    protected $table = 'bcaus_structure_drillstatus';
+
+    protected $primaryKey = 'd_structure_id';
+
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'd_structure_id', 'notification_id', 'timestamp', 'ready_time'
+    ];
 
     public function setReadyTimeAttribute($value)
     {

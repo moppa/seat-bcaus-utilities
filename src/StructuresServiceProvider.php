@@ -2,7 +2,10 @@
 
 namespace BCAUS\Seat\Structures;
 
+use BCAUS\Seat\Structures\Observers\CharacterNotificationObserver;
+use Seat\Eveapi\Models\Character\CharacterNotification;
 use Seat\Services\AbstractSeatPlugin;
+
 
 class StructuresServiceProvider extends AbstractSeatPlugin
 {
@@ -18,6 +21,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
         $this->add_translations();
         $this->add_permissions();
         $this->add_migrations();
+        $this->add_events();
     }
 
     /**
@@ -54,6 +58,11 @@ class StructuresServiceProvider extends AbstractSeatPlugin
     {
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'bcaus-structures');
     }
+
+    private function add_events()
+    {
+        CharacterNotification::observe(CharacterNotificationObserver::class);
+    }    
 
     /**
      * Return the plugin public name as it should be displayed into settings.

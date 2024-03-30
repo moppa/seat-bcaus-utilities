@@ -16,6 +16,6 @@ class Structure extends CorporationStructure
 
     public function drill_status()
     {
-        return $this->hasOne(DrillStatus::class, 'v_structure_id', 'structure_id');
+        return $this->hasOne(DrillStatus::class, 'd_structure_id', 'structure_id');
     }
 }
