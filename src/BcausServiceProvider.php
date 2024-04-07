@@ -3,7 +3,9 @@
 namespace BCAUS\Seat\Utilities;
 
 use BCAUS\Seat\Utilities\Observers\CharacterNotificationObserver;
+use BCAUS\Seat\Utilities\Observers\ContractDetailObserver;
 use Seat\Eveapi\Models\Character\CharacterNotification;
+use Seat\Eveapi\Models\Contracts\ContractDetail;
 use Seat\Services\AbstractSeatPlugin;
 
 
@@ -19,9 +21,9 @@ class BcausServiceProvider extends AbstractSeatPlugin
         $this->add_routes();
         $this->add_views();
         $this->add_translations();
-        $this->add_permissions();
         $this->add_migrations();
         $this->add_events();
+        $this->add_notifications();
     }
 
     /**
@@ -32,6 +34,7 @@ class BcausServiceProvider extends AbstractSeatPlugin
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/Config/package.tools.sidebar.php', 'package.sidebar');
+        $this->add_permissions();
     }
 
     private function add_routes()
@@ -62,7 +65,15 @@ class BcausServiceProvider extends AbstractSeatPlugin
     private function add_events()
     {
         CharacterNotification::observe(CharacterNotificationObserver::class);
-    }    
+        ContractDetail::observe(ContractDetailObserver::class);
+    }
+    
+    private function add_notifications()
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/Config/notifications.alerts.php', 'notifications.alerts'
+        );
+    }
 
     /**
      * Return the plugin public name as it should be displayed into settings.

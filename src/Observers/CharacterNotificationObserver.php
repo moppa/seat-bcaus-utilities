@@ -23,7 +23,7 @@ class CharacterNotificationObserver
     public function created(CharacterNotification $notification)
     {
         logger()->debug(
-            sprintf('[BCAUS-StructureNotification][%d] Character Notification - Notification received', $notification->notification_id),
+            sprintf('[BCAUS-Notification][%d] Character Notification - Notification received', $notification->notification_id),
             $notification->toArray());
 
         $this->dispatch($notification);
@@ -37,16 +37,16 @@ class CharacterNotificationObserver
     private function dispatch(CharacterNotification $notification)
     {
         if(in_array($notification->type, self::MOON_TYPES)) {
-            logger()->debug(sprintf('[BCAUS-StructureNotification][%d] Was Moon mining ping', $notification->notification_id), $notification->toArray());
+            logger()->debug(sprintf('[BCAUS-Notification][%d] Was Moon mining ping', $notification->notification_id), $notification->toArray());
 
             $drillStatus = DrillStatus::where('d_structure_id', $notification->text['structureID'])->first();
             if($drillStatus != null && $drillStatus->notification_id > $notification->notification_id) {
-                logger()->info(sprintf('[BCAUS-StructureNotification][%d] Existing notification is more recent %d', $notification->notification_id, $drillStatus->notification_id));
+                logger()->info(sprintf('[BCAUS-Notification][%d] Existing notification is more recent %d', $notification->notification_id, $drillStatus->notification_id));
                 return;
             }
 
             if($drillStatus == null) {
-                logger()->debug(sprintf('[BCAUS-StructureNotification][%d] Creating DrillStatus', $notification->notification_id), $notification->toArray());
+                logger()->debug(sprintf('[BCAUS-Notification][%d] Creating DrillStatus', $notification->notification_id), $notification->toArray());
                 $drillStatus = new DrillStatus(['d_structure_id' => $notification->text['structureID']]);
             }
 
@@ -60,7 +60,7 @@ class CharacterNotificationObserver
             }
 
             $drillStatus->save();
-            logger()->info(sprintf('[BCAUS-StructureNotification][%d] Updated Drillstatus', $notification->notification_id), $drillStatus->toArray());
+            logger()->info(sprintf('[BCAUS-Notification][%d] Updated Drillstatus', $notification->notification_id), $drillStatus->toArray());
         }
     }
 
