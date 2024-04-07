@@ -1,6 +1,6 @@
 <?php
 
-namespace BCAUS\Seat\Structures\Http\DataTables\Scopes;
+namespace BCAUS\Seat\Utilities\Http\DataTables\Scopes;
 
 use Yajra\DataTables\Contracts\DataTableScope;
 

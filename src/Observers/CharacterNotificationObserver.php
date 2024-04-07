@@ -1,15 +1,15 @@
 <?php
 
-namespace BCAUS\Seat\Structures\Observers;
+namespace BCAUS\Seat\Utilities\Observers;
 
-use BCAUS\Seat\Structures\Models\DrillStatus;
+use BCAUS\Seat\Utilities\Models\DrillStatus;
 use Seat\Eveapi\Models\Character\CharacterNotification;
 
 
 /**
  * Class CharacterNotificationObserver.
  *
- * @package BCAUS\Seat\Structures\Observers
+ * @package BCAUS\Seat\Utilities\Observers
  */
 class CharacterNotificationObserver
 {

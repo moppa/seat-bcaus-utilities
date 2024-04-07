@@ -1,10 +1,10 @@
 <?php
 
-namespace BCAUS\Seat\Structures\Http\Controllers;
+namespace BCAUS\Seat\Utilities\Http\Controllers\Structure;
 
 use Illuminate\Http\Request;
-use BCAUS\Seat\Structures\Http\DataTables\StructureDataTable;
-use BCAUS\Seat\Structures\Http\DataTables\Scopes\AthanorScope;
+use BCAUS\Seat\Utilities\Http\DataTables\StructureDataTable;
+use BCAUS\Seat\Utilities\Http\DataTables\Scopes\AthanorScope;
 use Seat\Web\Http\Controllers\Controller;
 
 class StructureController extends Controller
@@ -14,6 +14,6 @@ class StructureController extends Controller
         $status = $request->input('athanorsOnly');
         return $dataTable
             ->addScope(new AthanorScope($status))
-            ->render('bcaus-structures::structures.list');
+            ->render('bcaus::structures.list');
     }
 }

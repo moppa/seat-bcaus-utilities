@@ -1,13 +1,13 @@
 {
-    "name": "bcaus/bcaus-structures",
-    "description": "SeAT Plugin for structure management",
+    "name": "bcaus/bcaus-utilities",
+    "description": "SeAT Plugin for BCAUS Utilities",
     "type": "seat-plugin",
     "license": "GPL-3.0-or-later",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "BCAUS\\Seat\\Structures\\": "src/"
+            "BCAUS\\Seat\\Utilities\\": "src/"
         }
     },
     "require": {
@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
           "providers": [
-            "BCAUS\\Seat\\Structures\\StructuresServiceProvider"
+            "BCAUS\\Seat\\Utilities\\BcausServiceProvider"
           ]
         }
       }

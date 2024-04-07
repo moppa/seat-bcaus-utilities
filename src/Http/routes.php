@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group([
-    'namespace' => 'BCAUS\Seat\Structures\Http\Controllers',
+    'namespace' => 'BCAUS\Seat\Utilities\Http\Controllers\Structure',
     'prefix' => 'bcaus-structures',
     'middleware' => ['web', 'auth', 'locale', 'can:bcaus-structures.structures_view'],
 ], function () {

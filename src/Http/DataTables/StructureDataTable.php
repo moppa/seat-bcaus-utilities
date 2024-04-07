@@ -1,9 +1,9 @@
 <?php
 
-namespace BCAUS\Seat\Structures\Http\DataTables;
+namespace BCAUS\Seat\Utilities\Http\DataTables;
 
 use Illuminate\Http\JsonResponse;
-use BCAUS\Seat\Structures\Models\Structure;
+use BCAUS\Seat\Utilities\Models\Structure;
 use Yajra\DataTables\Services\DataTable;
 
 class StructureDataTable extends DataTable
@@ -23,7 +23,7 @@ class StructureDataTable extends DataTable
             })
             ->editColumn('fuel_expires', function ($row) {
                 if ($row->fuel_expires)
-                    return view('bcaus-structures::partials.date', ['datetime' => $row->fuel_expires])->render();
+                    return view('bcaus::partials.date', ['datetime' => $row->fuel_expires])->render();
 
                 return trans('web::seat.low_power');
             })
@@ -36,7 +36,7 @@ class StructureDataTable extends DataTable
             ->editColumn('drill_status.ready_time', function ($row) {
                 if ($row->drill_status) {
                     if ($row->drill_status->ready_time) {
-                        return view('bcaus-structures::partials.date', ['datetime' => $row->drill_status->ready_time])->render();
+                        return view('bcaus::partials.date', ['datetime' => $row->drill_status->ready_time])->render();
                     }
                     return '<b>*NOT ACTIVE*</b>';
                 }

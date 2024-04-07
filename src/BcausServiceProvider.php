@@ -1,13 +1,13 @@
 <?php
 
-namespace BCAUS\Seat\Structures;
+namespace BCAUS\Seat\Utilities;
 
-use BCAUS\Seat\Structures\Observers\CharacterNotificationObserver;
+use BCAUS\Seat\Utilities\Observers\CharacterNotificationObserver;
 use Seat\Eveapi\Models\Character\CharacterNotification;
 use Seat\Services\AbstractSeatPlugin;
 
 
-class StructuresServiceProvider extends AbstractSeatPlugin
+class BcausServiceProvider extends AbstractSeatPlugin
 {
     /**
      * Bootstrap the application services.
@@ -41,7 +41,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
 
     public function add_views()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'bcaus-structures');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'bcaus');
     }
 
     public function add_migrations()
@@ -51,12 +51,12 @@ class StructuresServiceProvider extends AbstractSeatPlugin
 
     public function add_permissions()
     {
-        $this->registerPermissions(__DIR__ . '/Config/package.permissions.php', 'bcaus-structures');
+        $this->registerPermissions(__DIR__ . '/Config/structure.permissions.php', 'bcaus-structures');
     }
 
     private function add_translations()
     {
-        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'bcaus-structures');
+        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'bcaus');
     }
 
     private function add_events()
@@ -73,7 +73,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function getName(): string
     {
-        return 'BCAUS Structure Management';
+        return 'BCAUS Utilities';
     }
 
     /**
@@ -85,7 +85,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function getPackageRepositoryUrl(): string
     {
-        return 'https://github.com/moppa/seat-bcaus-structures';
+        return 'https://github.com/moppa/seat-bcaus-utilities';
     }
 
     /**
@@ -97,7 +97,7 @@ class StructuresServiceProvider extends AbstractSeatPlugin
      */
     public function getPackagistPackageName(): string
     {
-        return 'bcaus-structures';
+        return 'bcaus-utilities';
     }
 
     /**

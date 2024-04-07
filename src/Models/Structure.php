@@ -1,6 +1,6 @@
 <?php
 
-namespace BCAUS\Seat\Structures\Models;
+namespace BCAUS\Seat\Utilities\Models;
 
 use Seat\Eveapi\Models\Corporation\CorporationStructure;
 use Seat\Eveapi\Models\Corporation\CorporationInfo;
