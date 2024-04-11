@@ -88,6 +88,9 @@ class CourierContractNotification extends AbstractDiscordNotification
             'Completed' => $this->contract->date_completed ? carbon(
               $this->contract->date_completed
             )->toDayDateTimeString() : '-',
+            'Expires' => $this->contract->date_expired ? carbon(
+              $this->contract->date_expired
+            )->toDayDateTimeString() : '-',
           ]);
       })
       
